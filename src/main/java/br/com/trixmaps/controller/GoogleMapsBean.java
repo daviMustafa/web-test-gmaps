@@ -1,8 +1,11 @@
 package br.com.trixmaps.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
 import org.primefaces.model.map.Circle;
@@ -10,6 +13,7 @@ import org.primefaces.model.map.DefaultMapModel;
 import org.primefaces.model.map.LatLng;
 import org.primefaces.model.map.MapModel;
 
+import br.com.trixmaps.dao.LocationDao;
 import br.com.trixmaps.model.Location;
 
 @ManagedBean
@@ -20,11 +24,14 @@ public class GoogleMapsBean {
 	private final double DISTANCE_METERS = DISTANCE_NM * 1852; // Metros
 	private String coordenadaCentral = "44, 28";
 	
-	private final MapModel mapModel;
+//	private final MapModel mapModel;
 	
 	private List<Location> locations;
 	
-	public GoogleMapsBean(){
+	@ManagedProperty("#{locationDao}")
+	private LocationDao locationDao;
+	
+/*	public GoogleMapsBean(){
 		
 		mapModel = new DefaultMapModel();
 		
@@ -36,10 +43,27 @@ public class GoogleMapsBean {
 		circulo1.setFillOpacity(0.2);
 		mapModel.addOverlay(circulo1);
 		
+	}*/
+	
+	@PostConstruct
+	public void init(){
+		locations = new ArrayList<Location>();
+		listarLocations();
+	}
+	
+	public void listarLocations(){
+		locations = locationDao.listAll(); 
+	}
+	
+	
+	public LocationDao getLocationDao() {
+		return locationDao;
 	}
 
-	
-	
+	public void setLocationDao(LocationDao locationDao) {
+		this.locationDao = locationDao;
+	}
+
 	public List<Location> getLocations() {
 		return locations;
 	}
@@ -48,9 +72,9 @@ public class GoogleMapsBean {
 		this.locations = locations;
 	}
 
-	public MapModel getMapModel() {
-		return mapModel;
-	}
+//	public MapModel getMapModel() {
+//		return mapModel;
+//	}
 
 	public String getCoordenadaCentral() {
 		return coordenadaCentral;
