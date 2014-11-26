@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/index.xhtml">
+	
+	<ui:param name="mb" value="#{locationBean}" />
+	
+	<ui:define name="content">
+		<h:form prependId="false" id="form">
+			<p:panel rendered="#{mb.isStListar()}">
+				<ui:include src="list.xhtml"></ui:include>
+			</p:panel>
+			<p:panel rendered="#{mb.isStCadastrar()}">
+				<ui:include src="create.xhtml"></ui:include>
+			</p:panel>
+			<p:panel rendered="#{mb.isStEditar()}">
+				<ui:include src="edit.xhtml"></ui:include>
+			</p:panel>
+		</h:form>
+	</ui:define>
+</ui:composition>

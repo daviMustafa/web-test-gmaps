@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition>
+	<div align="center">
+		<h3>
+			<p:outputLabel value="Create new Location" />
+		</h3>
+		<h:form id="form_location">
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Latitude" />
+				<h:inputText styleClass="form-control" name="latitude"
+					value="#{mb.location.latitude}" required="true" />
+
+				<h:outputLabel value="Longitude" />
+				<h:inputText styleClass="form-control" name="longitude"
+					value="#{mb.location.longitude}" required="true" />
+
+				<h:outputLabel value="Add Tags" />
+				<p:pickList id="taglist" value="#{mb.listModelTags}" var="tags"
+					name="taglist" itemLabel="#{tags.name}" itemValue="#{tags}"
+					converter="entityConverter" required="true" />
+
+				<h:outputLabel value="Name Location" />
+				<h:inputText styleClass="form-control" value="#{mb.location.name}"
+					name="nameLocation" maxlength="50" required="true" />
+
+			</h:panelGrid>
+
+			<h:panelGrid columns="2">
+				<p:commandButton value="Create" action="#{mb.cadastra()}"
+					update=":content" style="margin: auto 0px" />
+				<p:commandButton value="Back" action="#{mb.prepararListar()}"
+					update=":content" style="margin: auto 0px" />
+			</h:panelGrid>
+		</h:form>
+	</div>
+</ui:composition>
+</html>

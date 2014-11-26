@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition>
+	<div>
+		<p:dataTable var="location" value="#{mb.locations}" rows="10"
+			paginator="true"
+			paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+			rowsPerPageTemplate="5,10, 15" paginatorPosition="bottom"
+			emptyMessage="No data to be loaded.">
+			<f:facet name="header">
+				<p:outputLabel value="Lista de Locations"></p:outputLabel>
+			</f:facet>
+			<p:column headerText="Latitude" style="width: 100px;">
+				<h:outputText value="#{location.latitude}" />
+			</p:column>
+
+			<p:column headerText="Longitude" style="width: 100px;">
+				<h:outputText value="#{location.longitude}" />
+			</p:column>
+
+			<p:column headerText="Name" style="width: 150px;">
+				<h:outputText value="#{location.name}" />
+			</p:column>
+
+			<p:column headerText="Tags" style="width: 150px;">
+				<ui:repeat var="t" value="#{location.tags}">
+					<h:outputText value="#{t.name}" />
+					<br />
+				</ui:repeat>
+			</p:column>
+
+			<p:column headerText="Created" style="width: 150px;">
+				<h:outputText value="#{location.created}" />
+			</p:column>
+
+			<p:column headerText="Ações" style="width: 80px;"
+				styleClass="columnAcoes">
+				<p:commandLink action="#{mb.prepararEditar(location)}"
+					update=":content" styleClass="ui-icon ui-icon-pencil"
+					style="margin: auto" process="@this" />
+				<p:commandLink styleClass="ui-icon ui-icon-closethick" ajax="false"
+					action="#{mb.excluir(location)}" style="margin: auto" />
+			</p:column>
+		</p:dataTable>
+	</div>
+	<div style="text-align: right;">
+		<p:commandButton value="Add Location" action="#{mb.prepararCadastrar}"
+			update=":content"></p:commandButton>
+	</div>
+</ui:composition>
+</html>

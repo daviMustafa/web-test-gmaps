@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:sec="http://www.springframework.org/security/tags">
+<ui:composition>
+	<h:form>
+		<div class="menuTopo" style="background-color: #000000">
+			<p:outputPanel id="menuTopo">
+				<p:outputPanel style="margin-left: 120px;">
+				</p:outputPanel>
+				<p:outputPanel>
+					<p:menubar>
+						<p:submenu label="List" icon="ui-icon-document">
+							<p:menuitem value="Location" icon="ui-icon-contact"
+								url="/pages/location/index.xhtml" />
+							<p:menuitem value="Tag" icon="ui-icon-contact"
+								url="/pages/tag/index.xhtml" />
+						</p:submenu>
+					
+						<p:menuitem value="Quit" url="http://www.trixlog.com"
+							icon="ui-icon-close" />
+					</p:menubar>
+				</p:outputPanel>
+			</p:outputPanel>
+		</div>
+	</h:form>
+</ui:composition>
+</html>

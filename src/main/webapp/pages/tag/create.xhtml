@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition>
+	<div align="center">
+		<h3>
+			<p:outputLabel value="Create new Tag" />
+		</h3>
+			<h:panelGrid columns="2" id="tagPanel">
+				<h:outputLabel value="Tag Name" />
+				<h:inputText id="tagName" name="tagName" styleClass="form-control"
+					value="#{mb.tag.name}" required="true" requiredMessage="Obrigatório nome da tag."/>
+				<br/>	
+			</h:panelGrid>
+
+			<h:panelGrid columns="2">
+				<p:commandButton value="Create" action="#{mb.cadastrar()}"
+					update=":content tagPanel" style="margin: auto 0px" />
+				<p:commandButton value="Back" action="#{mb.prepararListar()}"
+					update=":content" style="margin: auto 0px" />
+			</h:panelGrid>
+	</div>
+</ui:composition>
+</html>
