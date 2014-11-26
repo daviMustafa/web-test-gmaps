@@ -6,7 +6,7 @@ import br.com.trixmaps.dao.LocationDaoImpl;
 import br.com.trixmaps.model.Location;
 import br.com.trixmaps.model.Tag;
 
-
+// TESTE APLICAÇÂO
 public class Main {
 	
 	public static void main(String[] args) {
@@ -30,7 +30,6 @@ public class Main {
 //		
 //		bean.insert(l);
 		
-		// lol tinha outra vazio =D
 		Location location = bean.listAll().get(0);
 		bean.remove(location);
 //		System.out.println(location);

@@ -15,30 +15,30 @@
 			<f:facet name="header">
 				<p:outputLabel value="Lista de Locations"></p:outputLabel>
 			</f:facet>
-			<p:column headerText="Latitude" style="width: 100px;">
+			<p:column headerText="Latitude" >
 				<h:outputText value="#{location.latitude}" />
 			</p:column>
 
-			<p:column headerText="Longitude" style="width: 100px;">
+			<p:column headerText="Longitude" >
 				<h:outputText value="#{location.longitude}" />
 			</p:column>
 
-			<p:column headerText="Name" style="width: 150px;">
+			<p:column headerText="Name" >
 				<h:outputText value="#{location.name}" />
 			</p:column>
 
-			<p:column headerText="Tags" style="width: 150px;">
+			<p:column headerText="Tags" >
 				<ui:repeat var="t" value="#{location.tags}">
 					<h:outputText value="#{t.name}" />
 					<br />
 				</ui:repeat>
 			</p:column>
 
-			<p:column headerText="Created" style="width: 150px;">
+			<p:column headerText="Created" >
 				<h:outputText value="#{location.created}" />
 			</p:column>
 
-			<p:column headerText="Ações" style="width: 80px;"
+			<p:column headerText="Ações" 
 				styleClass="columnAcoes">
 				<p:commandLink action="#{mb.prepararEditar(location)}"
 					update=":content" styleClass="ui-icon ui-icon-pencil"
