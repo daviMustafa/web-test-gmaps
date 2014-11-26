@@ -21,7 +21,6 @@
 				<h:panelGrid columns="2">
 					<h:outputLabel value="Latitude" />
 					<h:selectOneMenu value="#{mb.location}" converter="entityConverter" styleClass="form-control">
-						<f:selectItem itemLabel="Selecione uma location" itemValue="" />
 						<f:selectItems value="#{mb.locations}" var="location"
 							itemLabel="#{location.name}" itemValue="#{location}" />
 			        </h:selectOneMenu>
