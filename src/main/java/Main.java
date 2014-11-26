@@ -30,7 +30,7 @@ public class Main {
 //		
 //		bean.insert(l);
 		
-		// lol tinha outra vazio =D
+		
 		Location location = bean.listAll().get(0);
 		bean.remove(location);
 //		System.out.println(location);
