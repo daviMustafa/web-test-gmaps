@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui" template="/index.xhtml">
+
+	<ui:param name="mb" value="#{googleMapsBean}" />
+
+	<ui:define name="content">
+
+		<div align="center">
+			<h3>
+				<p:outputLabel value="Localize uma Posição" />
+			</h3>
+			<h:form id="form_map">
+				<h:panelGrid columns="2">
+					<h:outputLabel value="Latitude" />
+					<h:selectOneMenu value="" styleClass="form-control">
+						<f:selectItem  itemLabel="Selecione uma location"/>
+						<f:selectItems/>
+					</h:selectOneMenu> 
+				</h:panelGrid>
+				<p:commandButton value="Localizar" action="#" update=":panelMap"/>
+			</h:form>
+			
+			<br/>
+			<br/>
+
+			<p:outputPanel id="panelMap">
+				<p:gmap center="#{googleMapsBean.coordenadaCentral}" model=""
+					zoom="2" type="TERRAIN" style="width:600px;height:400px">
+
+				</p:gmap>
+			</p:outputPanel>
+		</div>
+	</ui:define>
+
+</ui:composition>
