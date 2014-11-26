@@ -21,7 +21,9 @@
 				<p:commandButton value="Create" action="#{mb.cadastrar()}"
 					update=":content tagPanel" style="margin: auto 0px" />
 				<p:commandButton value="Back" action="#{mb.prepararListar()}"
-					update=":content" style="margin: auto 0px" />
+					update=":content" style="margin: auto 0px" immediate="true" process="@this" >
+					<p:resetInput target=":content" />
+				</p:commandButton>	
 			</h:panelGrid>
 	</div>
 </ui:composition>

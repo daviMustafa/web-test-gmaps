@@ -1,5 +1,6 @@
 package br.com.trixmaps.controller;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,8 +15,10 @@ import br.com.trixmaps.utils.FacesUtils;
 
 @ManagedBean
 @ViewScoped
-public class GoogleMapsBean {
+public class GoogleMapsBean implements Serializable{
 	
+	private static final long serialVersionUID = -7131779288998064551L;
+
 	private List<Location> locations;
 	
 	@ManagedProperty("#{locationDao}")
