@@ -30,10 +30,6 @@ public class Main {
 //		
 //		bean.insert(l);
 		
-<<<<<<< HEAD
-=======
-		
->>>>>>> dd5428337d4d17084244a0a3fbadfe37eb281fd1
 		Location location = bean.listAll().get(0);
 		bean.remove(location);
 //		System.out.println(location);
