@@ -11,6 +11,7 @@ O projeto por padrão é configurado para o banco de dados PostgreSQL, mas por s
 Passos:
 
 1. Importe o projeto no  [Eclipse Java EE IDE for Web Developers (Testado a partir do Helios)](http://www.eclipse.org/downloads/) ou superior;
+OBS: JAVA 8
 2.  Baixe as dependências do projeto Maven (Botão direito no Projeto -> Maven -> Update project...);
 3.  Crie o banco `trixmaps` com a ferramenta escolhida (no caso a usada para a aplicação em que foi utilizado o `PostgreSQL`, foi o PGAdmin);
 5.  Configurações de informações do banco (user = postgres, pass = postgres, porta = 5432)  
