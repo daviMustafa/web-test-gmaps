@@ -29,6 +29,7 @@ public class LocationBean extends GenericMB implements Serializable{
 	private List<Tag> tags;
 	
 	private DualListModel<Tag> listModelTags;
+	private DualListModel<Tag> editListModelTags;
 	
 	@ManagedProperty("#{locationDao}")
 	private LocationDao locationDao;
@@ -65,6 +66,16 @@ public class LocationBean extends GenericMB implements Serializable{
 		}
 	}
 	
+	public void editar(){
+		try{
+			location.setTags(editListModelTags.getTarget());
+			locationDao.update(location);
+			new FacesUtils().adicionaMensagemDeSucesso("Location "+location.getName()+" editada com sucesso");
+		} catch(Exception e){
+			new FacesUtils().adicionaMensagemDeErro("Falha ao editar a location");
+		}
+	}
+	
 	public void listar(){
 		locations = locationDao.listAll();
 	}
@@ -85,6 +96,9 @@ public class LocationBean extends GenericMB implements Serializable{
 	public void prepararEditar(Location location){
 		preparar(STATE_EDITAR);
 		this.location = location;
+		carregarTags();
+		
+		editListModelTags = new DualListModel<Tag>(tags, location.getTags());
 	}
 	
 	public void prepararCadastrar(){
@@ -135,5 +149,15 @@ public class LocationBean extends GenericMB implements Serializable{
 	public void setListModelTags(DualListModel<Tag> listModelTags) {
 		this.listModelTags = listModelTags;
 	}
+
+	public DualListModel<Tag> getEditListModelTags() {
+		return editListModelTags;
+	}
+
+	public void setEditListModelTags(DualListModel<Tag> editListModelTags) {
+		this.editListModelTags = editListModelTags;
+	}
+	
+	
 	
 }

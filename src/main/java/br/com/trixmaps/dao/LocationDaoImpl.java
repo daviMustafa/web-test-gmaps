@@ -50,6 +50,6 @@ public class LocationDaoImpl implements LocationDao, Serializable{
 	
 	@Transactional
 	public void update(Location location){
-		this.manager.merge(location);
+		this.manager.merge(manager.merge(location));
 	}
 }

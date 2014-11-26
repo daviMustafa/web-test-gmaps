@@ -32,7 +32,11 @@ public class GoogleMapsBean {
 	}
 	
 	public void locationSelected(){
-		new FacesUtils().adicionaMensagemDeSucesso("Localização selecionada - Nome: " +location.getName()+ "/ Latitude: "+location.getLatitude()+" / Longitude: "+location.getLongitude());
+		if(location != null){
+			new FacesUtils().adicionaMensagemDeSucesso("Localização selecionada - Nome: " +location.getName()+ " / Latitude: "+location.getLatitude()+" / Longitude: "+location.getLongitude());
+		} else {
+			new FacesUtils().adicionaMensagemDeErro("Nenhuma localização selecionada");
+		}
 	}
 	
 	public void listarLocations(){
