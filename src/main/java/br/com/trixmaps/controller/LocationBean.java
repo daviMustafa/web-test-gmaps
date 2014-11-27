@@ -33,7 +33,7 @@ public class LocationBean extends GenericMB implements Serializable{
 	
 	@ManagedProperty("#{locationDao}")
 	private LocationDao locationDao;
-	
+
 	@ManagedProperty("#{tagDao}")
 	private TagDao tagDao;
 	

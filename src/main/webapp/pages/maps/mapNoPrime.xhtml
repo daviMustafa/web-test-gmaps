@@ -17,6 +17,7 @@
 				<h:inputHidden value="#{mb.location.latitude}" id="lat"/>
 				<h:inputHidden value="#{mb.location.longitude}" id="long"/>
 				<h:inputHidden value="#{mb.location.name}" id="name"/>
+				<h:inputHidden value="#{mb.latlng}" id="latlng"/>
 				
 				<h:panelGrid columns="2">
 					<h:outputLabel value="Localidade" />
@@ -25,7 +26,7 @@
 							itemLabel="#{location.name}" itemValue="#{location}" />
 			        </h:selectOneMenu>
 				</h:panelGrid>
-				<p:commandButton value="Localizar" action="#{mb.locationSelected()}" update="lat long name" oncomplete="executarMapa();"/>
+				<p:commandButton value="Localizar" action="#{mb.locationSelected()}" update="lat long name latlng" oncomplete="executarMapa();"/>
 			</h:form>
 			
 			<br /> <br />

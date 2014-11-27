@@ -26,6 +26,7 @@ public class GoogleMapsBean implements Serializable{
 	
 	private Location location;
 	
+	private String latlng = "";
 	
 	@PostConstruct
 	public void init(){
@@ -36,6 +37,7 @@ public class GoogleMapsBean implements Serializable{
 	
 	public void locationSelected(){
 		if(location != null){
+			latlng = location.getLatitude().toString()+","+location.getLongitude().toString();
 			new FacesUtils().adicionaMensagemDeSucesso("Localização selecionada - Nome: " +location.getName()+ " / Latitude: "+location.getLatitude()+" / Longitude: "+location.getLongitude());
 		} else {
 			new FacesUtils().adicionaMensagemDeErro("Nenhuma localização selecionada");
@@ -69,6 +71,14 @@ public class GoogleMapsBean implements Serializable{
 
 	public void setLocation(Location location) {
 		this.location = location;
+	}
+
+	public String getLatlng() {
+		return latlng;
+	}
+
+	public void setLatlng(String latlng) {
+		this.latlng = latlng;
 	}
 	
 }
