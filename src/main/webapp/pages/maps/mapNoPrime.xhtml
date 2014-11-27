@@ -19,8 +19,8 @@
 				<h:inputHidden value="#{mb.location.name}" id="name"/>
 				
 				<h:panelGrid columns="2">
-					<h:outputLabel value="Latitude" />
-					<h:selectOneMenu value="#{mb.location}" converter="entityConverter" styleClass="form-control">
+					<h:outputLabel value="Localidade" />
+					<h:selectOneMenu value="#{mb.location}" converter="entityConverter" styleClass="form-control" style="width:150px">
 						<f:selectItems value="#{mb.locations}" var="location"
 							itemLabel="#{location.name}" itemValue="#{location}" />
 			        </h:selectOneMenu>

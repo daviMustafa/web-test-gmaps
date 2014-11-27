@@ -99,18 +99,10 @@ public class LocationBean extends GenericMB implements Serializable{
 		carregarTags();
 		
 		List<Tag> locationTags = location.getTags();
-		List<Tag> tagsAux = new ArrayList<Tag>();
-		tagsAux.clear();
 		
-		for(Tag tag : locationTags){
-			for(Tag tag2 : tags){
-				if(tag.getName().equalsIgnoreCase(tag2.getName())){
-					tagsAux.add(tag2);
-				}
-			}
-		}
+		tags.removeAll(locationTags);
 		
-		editListModelTags = new DualListModel<Tag>(tagsAux, location.getTags());
+		editListModelTags = new DualListModel<Tag>(tags, location.getTags());
 	}
 	
 	public void prepararCadastrar(){

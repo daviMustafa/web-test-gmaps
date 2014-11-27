@@ -8,7 +8,7 @@
 <ui:composition>
 	<div align="center">
 		<h3>
-			<p:outputLabel value="Create new Tag" />
+			<p:outputLabel value="Criar nova Tag" />
 		</h3>
 			<h:panelGrid columns="2" id="tagPanel">
 				<h:outputLabel value="Tag Name" />
@@ -18,9 +18,9 @@
 			</h:panelGrid>
 
 			<h:panelGrid columns="2">
-				<p:commandButton value="Create" action="#{mb.cadastrar()}"
+				<p:commandButton value="Criar" action="#{mb.cadastrar()}"
 					update=":content tagPanel" style="margin: auto 0px" />
-				<p:commandButton value="Back" action="#{mb.prepararListar()}"
+				<p:commandButton value="Voltar" action="#{mb.prepararListar()}"
 					update=":content" style="margin: auto 0px" immediate="true" process="@this" >
 					<p:resetInput target=":content" />
 				</p:commandButton>	

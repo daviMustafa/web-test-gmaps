@@ -10,8 +10,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
-import org.springframework.orm.jpa.JpaSystemException;
-
 import br.com.trixmaps.dao.TagDao;
 import br.com.trixmaps.model.Tag;
 import br.com.trixmaps.utils.FacesUtils;
@@ -54,7 +52,7 @@ public class TagBean extends GenericMB implements Serializable {
 			tags.remove(tag);
 			prepararListar();
 			new FacesUtils().adicionaMensagemDeSucesso("Tag "+tag.getName()+" removida com sucesso");
-		}catch(JpaSystemException e){
+		}catch(Exception e){
 			new FacesUtils().adicionaMensagemDeErro("Tag "+tag.getName()+" relacionada com uma location. Exclusão abortada.");
 		}
 			
