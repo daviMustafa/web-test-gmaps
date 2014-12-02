@@ -58,6 +58,7 @@
 		</dependency>
 
 		<!-- Hibernate -->
+		
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
@@ -153,26 +154,6 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
-		</dependency>
-
-		<!-- JERSEY -->
-		<dependency>
-			<groupId>com.sun.jersey</groupId>
-			<artifactId>jersey-core</artifactId>
-			<version>1.18.1</version>
-		</dependency>
-
-		<dependency>
-			<groupId>javax.ws.rs</groupId>
-			<artifactId>jsr311-api</artifactId>
-			<version>1.1.1</version>
-		</dependency>
-
-		<!-- JSON Simple 1.1.1 -->
-		<dependency>
-			<groupId>com.googlecode.json-simple</groupId>
-			<artifactId>json-simple</artifactId>
-			<version>1.1.1</version>
 		</dependency>
 
 		<!-- Apache Commons Dependencies -->
